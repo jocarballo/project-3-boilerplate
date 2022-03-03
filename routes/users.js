@@ -2,7 +2,7 @@ const User = require('../models/User')
 const express = require('express');
 const router = express.Router();
 const Plant = require('../models/Plant')
-
+const jwt = require('jsonwebtoken')
 
 
 // get all the users
@@ -54,9 +54,20 @@ router.put('/users/:id', (req, res, next) => {
   });
 
 
+// get the plants from the user
 router.get('/users/:id/plants', (req, res, next) => {
-    
-});
+  const userToken = req.headers.authorization;
+  const token = userToken.split(' ');
+  const user = jwt.verify(token[1], process.env.JWT_SECRET);
+  console.log("user: ", user);
+    User.findById(user._id)
+      // with populate I get the entire object instead only the id from the plant
+      .populate('plants') 
+      .then(user => {
+        res.status(200).json(user.plants)
+      })
+      .catch(err => next(err))
+  })
 
 
 // associate a plant to a user
