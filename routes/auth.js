@@ -6,6 +6,7 @@ const { isAuthenticated } = require("../middleware/jwt");
 
 
 
+
 router.post('/signup', (req, res, next) => {
     const { username, email, password } = req.body
     console.log("body", req.body)

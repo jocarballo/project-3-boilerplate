@@ -2,13 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { AuthProviderWrapper } from './context/auth'
 
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Router>
+    <AuthProviderWrapper>
+      <App />
+    </AuthProviderWrapper>
+  </Router>,
   document.getElementById('root')
 );
 
