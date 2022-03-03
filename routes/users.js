@@ -16,8 +16,8 @@ router.get('/users', (req, res, next) => {
 
   router.post('/users', (req, res, next) => {
     // get the values from request body
-    const { username, email, passwordHash } = req.body
-    User.create({ username, email, passwordHash })
+    const { username, email, password } = req.body
+    User.create({ username, email, password })
         .then(user => res.redirect('/users'))
         .catch(err => {
             res.render('/users')
@@ -41,11 +41,11 @@ router.get('/users/:id', (req, res, next) => {
 
 // update a user
 router.put('/users/:id', (req, res, next) => {
-    const { username, email, passwordHash } = req.body
+    const { username, email, password } = req.body
     User.findByIdAndUpdate(req.params.id, {
         username, 
         email, 
-        passwordHash
+        password
     }, { new: true })
       .then(updatedUser => {
         res.status(200).json(updatedUser)

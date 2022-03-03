@@ -21,19 +21,19 @@ const users = [
     {
         username: "joana",
         email: "jo@iron", 
-        passwordHash: "12",
+        password: "12",
 
     },
     {
         username: "mateus",
         email: "mat@iron", 
-        passwordHash: "12",
+        password: "12",
 
     },
     {
         username: "fabio",
         email: "fa@iron", 
-        passwordHash: "12",
+        password: "12",
 
     }
 ] 

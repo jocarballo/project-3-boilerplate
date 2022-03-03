@@ -21,9 +21,11 @@ require("./config")(app);
 
 const plants = require("./routes/plants")
 const users = require("./routes/users")
+const auth = require("./routes/auth")
 
 app.use("/", plants)
 app.use("/", users)
+app.use("/", auth)
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
