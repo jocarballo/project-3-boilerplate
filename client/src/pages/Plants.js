@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 
 
@@ -35,8 +36,7 @@ export default function Plants() {
                {plants.map((plant, i) => (
                     <ul key={i} className="plant">
                         <div>Common Name: {plant.common_name}</div>
-                        <div>Scientific Name: {plant.scientific_name}</div>
-                        <div>Description: {plant.description}</div>
+                        <Link to={`/plants/${plant._id}`}>Details</Link>
                     </ul>
                ))}
             </div>
