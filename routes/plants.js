@@ -12,17 +12,6 @@ router.get('/plants', (req, res, next) => {
   });
 
 
-router.post('/plants', (req, res, next) => {
-    // get the values from request body
-    const { common_name, scientific_name, description } = req.body
-    Plant.create({ common_name, scientific_name, description })
-        .then(plant => res.redirect('/plants'))
-        .catch(err => {
-            res.render('/plants')
-        })
-});
-
-
 // get a specific plant
 router.get('/plants/:id', (req, res, next) => {
   Plant.findById(req.params.id)

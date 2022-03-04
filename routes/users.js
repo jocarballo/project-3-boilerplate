@@ -14,17 +14,6 @@ router.get('/users', (req, res, next) => {
   });
 
 
-  router.post('/users', (req, res, next) => {
-    // get the values from request body
-    const { username, email, password } = req.body
-    User.create({ username, email, password })
-        .then(user => res.redirect('/users'))
-        .catch(err => {
-            res.render('/users')
-        })
-});
-
-
 // get a specific user
 router.get('/users/:id', (req, res, next) => {
     User.findById(req.params.id)

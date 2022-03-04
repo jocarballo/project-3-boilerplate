@@ -12,6 +12,7 @@ const userSchema = new Schema(
       required: [true, 'Password is required.']
     },
     plants: [{type: Schema.Types.ObjectId, ref: 'Plant'}],
+    questions: [{type: Schema.Types.ObjectId, ref: 'Question'}]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

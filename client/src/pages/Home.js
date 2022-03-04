@@ -21,8 +21,8 @@ export default function Home() {
 		query = event.target.value;
 	}
 
-	// cada vey que a query altera tem que se guardar numa variável para que quando
-	// a RouteChange for chamada podermos colocar essa variável na route
+
+
 
 	return (
 		<>

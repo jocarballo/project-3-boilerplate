@@ -6,9 +6,8 @@ const plantSchema = new Schema(
     scientific_name: String,
     description: String,
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`
-    timestamps: true,
+  { 
+    timestamps: true
   }
 );
 

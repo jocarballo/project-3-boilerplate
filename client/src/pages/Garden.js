@@ -30,6 +30,19 @@ export default function Garden() {
     }, [])
 
 	return (
+        <>
         <h1>Garden</h1>
+            <div>
+               {plants.map((plant, i) => (
+                    <ul key={i} className="plant">
+                        <div>Common name: {plant.common_name}</div>
+                        <p></p>
+                        <div>Scientific name: {plant.scientific_name}</div>
+                        <p></p>
+                        <div>Description: {plant.description}</div>
+                    </ul>
+               ))}
+            </div>
+        </>
 	)
 }

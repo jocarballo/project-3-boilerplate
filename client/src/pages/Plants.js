@@ -6,11 +6,21 @@ import { useQueryParam, StringParam } from 'use-query-params';
 
 
 export default function Plants() {
+    
     const [query, setQuery] = useQueryParam('query', StringParam)
     console.log("query: ", query)
 
+
     const [ plants, setPlants ] = useState([])
     console.log("plants here: ", plants)
+
+
+	// verifying if plant includes query
+    let filteredPlants = plants.filter(plant => {
+        return plant.common_name.toLowerCase().includes(query)
+    })
+
+
 
     const storedToken = localStorage.getItem('authToken')
 
@@ -36,7 +46,7 @@ export default function Plants() {
         <>
             <h1>Here you can see all the plants</h1>
             <div className="allPlants">
-               {plants.map((plant, i) => (
+               {filteredPlants.map((plant, i) => (
                     <ul key={i} className="plant">
                         <div>Common Name: {plant.common_name}</div>
                         <Link to={`/plants/${plant._id}`}>Details</Link>
