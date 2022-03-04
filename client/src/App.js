@@ -8,10 +8,11 @@ import Plant from './pages/Plant';
 import Garden from './pages/Garden';
 
 
+
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<Login />} />
@@ -20,7 +21,6 @@ function App() {
           <Route path='/plants/:plantId' element={<Plant />} />
           <Route path='/garden' element={<Garden />} />
         </Routes>
-      </header>
     </div>
   );
 }

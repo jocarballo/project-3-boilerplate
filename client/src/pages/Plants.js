@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useQueryParam, StringParam } from 'use-query-params';
 
 
 
 export default function Plants() {
+    const [query, setQuery] = useQueryParam('query', StringParam)
+    console.log("query: ", query)
 
     const [ plants, setPlants ] = useState([])
     console.log("plants here: ", plants)

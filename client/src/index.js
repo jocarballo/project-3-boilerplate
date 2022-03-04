@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProviderWrapper } from './context/auth'
+import { QueryParamProvider } from 'use-query-params';
 
 
 ReactDOM.render(
   <Router>
-    <AuthProviderWrapper>
-      <App />
-    </AuthProviderWrapper>
+    <QueryParamProvider>
+      <AuthProviderWrapper>
+        <App />
+      </AuthProviderWrapper>
+    </QueryParamProvider>
   </Router>,
   document.getElementById('root')
 );
