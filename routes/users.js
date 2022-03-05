@@ -44,10 +44,11 @@ router.put('/users/:id', (req, res, next) => {
 
 
 // get the plants from the user
-router.get('/users/:id/plants', (req, res, next) => {
+router.get('/users/plants', (req, res, next) => {
   const userToken = req.headers.authorization;
   const token = userToken.split(' ');
   const user = jwt.verify(token[1], process.env.JWT_SECRET);
+  
   console.log("user: ", user);
     User.findById(user._id)
       // with populate I get the entire object instead only the id from the plant
@@ -96,6 +97,7 @@ router.delete('/users/:id/plants/:plantId', (req, res, next) => {
               })
               .catch(err => next(err))
 });
+
 
 
 

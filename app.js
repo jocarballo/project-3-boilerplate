@@ -23,12 +23,14 @@ const plants = require("./routes/plants")
 const users = require("./routes/users")
 const auth = require("./routes/auth")
 const question = require("./routes/question")
+const note = require("./routes/note")
 
 
 app.use("/", plants)
 app.use("/", users)
 app.use("/", auth)
 app.use("/", question)
+app.use("/", note)
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
