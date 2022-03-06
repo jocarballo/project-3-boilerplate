@@ -42,26 +42,32 @@ export default function Plants() {
 
   return (
     <>
-        <Navbar/>
+      <Navbar />
       <h1>Here you can see all the plants</h1>
       <div className="container">
         <div className="row">
           {filteredPlants.map((plant, i) => (
-            <div className="col">
-            <Link to={`/plants/${plant._id}`}>
-              <div
-                className="card"
-                style={{ background: "#fac400", width: "18rem" }}
-              >
-                <img src="..." className="card-img-top" alt="..." />
+            <div className="col-3 mt-4">
+              <Link className="link" to={`/plants/${plant._id}`}>
                 <div
-                  className="card-body rounded-top rounded-4"
-                  style={{ background: "white" }}
+                  className="plant-card shadow rounded"
                 >
-                  <h5 className="card-title">{plant.common_name}</h5>
-                  <p className="card-text">{plant.description}</p>
+                  <div className="img-container d-flex justify-content-center align-items-center">
+                    <img
+                      src={`images/plants/${plant.image}.png`}
+                      className="card-img-top"
+                      alt="..."
+                    />
+                  </div>
+
+                  <div
+                    className="card-body rounded-top rounded-4"
+                    style={{ background: "white" }}
+                  >
+                    <h5 className="card-title">{plant.common_name}</h5>
+                    <p className="card-text">{plant.description}</p>
+                  </div>
                 </div>
-              </div>
               </Link>
             </div>
           ))}

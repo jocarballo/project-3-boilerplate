@@ -11,32 +11,92 @@ const User = require('../models/User')
 const Note = require('../models/Note')
 const Question = require('../models/Question')
 
-
 const plants = [
-    {   
-        _id: "123456789012345678901234",
-        common_name: "Common dandelion",
-        scientific_name: "Taraxacum officinale",
-        description: "Taraxacum officinale, the dandelion or common dandelion, is a flowering herbaceous perennial plant of the dandelion genus in the family Asteraceae (syn. Compositae). The common dandelion is well known for its yellow flower heads that turn into round balls of many silver-tufted fruits that disperse in the wind. These balls are usually called <clocks> in both British and American English.",
-    },
-    {   
-        
-        common_name: "Mijdiejde",
-        scientific_name: "deoidjewodj officinale",
-        description: "Taraxacum officinale, the dandelion or common dandelion, is a flowering herbaceous perennial plant of the dandelion genus in the family Asteraceae (syn. Compositae). The common dandelion is well known for its yellow flower heads that turn into round balls of many silver-tufted fruits that disperse in the wind. These balls are usually called <clocks> in both British and American English.",
-    },
-    {   
-        
-        common_name: "cdsicjosdjc",
-        scientific_name: "chasijcxpasikpoask",
-        description: "cmidjcoijcmosj officinale, the dandelion or common dandelion, is a flowering herbaceous perennial plant of the dandelion genus in the family Asteraceae (syn. Compositae). The common dandelion is well known for its yellow flower heads that turn into round balls of many silver-tufted fruits that disperse in the wind. These balls are usually called <clocks> in both British and American English.",
-    }, 
-    {   
-        
-        common_name: "pkspaowi",
-        scientific_name: "qpwosqwsub",
-        description: "swpskqwpolspqoks officinale, the dandelion or common dandelion, is a flowering herbaceous perennial plant of the dandelion genus in the family Asteraceae (syn. Compositae). The common dandelion is well known for its yellow flower heads that turn into round balls of many silver-tufted fruits that disperse in the wind. These balls are usually called <clocks> in both British and American English.",
-    }
+	{
+        "_id": "123456789012345678901234",
+		"common_name": "Peperomia",
+		"botanical_name": "Peperomia ssp.",
+		"care": "medium",
+		"water_frequency": {
+			"amount": "7-10",
+			"cadence": "days"
+		},
+		"light": "partly_sun",
+		"soil": "Average potting soil to rich loam; good drainage",
+		"image": "peperomia"
+	},
+	{
+		"common_name": "Watermelon Peperomia",
+		"botanical_name": "Peperomia argyreia",
+		"care": "easy",
+		"water_frequency": {
+			"amount": "2-3",
+			"cadence": "week"
+		},
+		"light": "partly_sun",
+		"soil": "Well-draining, loose soil",
+		"image": "watermelon"
+	},
+	{
+		"common_name": "Croton",
+		"botanical_name": "Codiaeum Variegatum",
+		"care": "medium",
+		"water_frequency": {
+			"amount": "2-3",
+			"cadence": "week"
+		},
+		"light": "partly_sun",
+		"soil": "Well-drained potting soil",
+		"image": "croton"
+	},
+	{
+		"common_name": "Bird Nest Fern",
+		"botanical_name": "Asplenium nidus",
+		"care": "medium",
+		"water_frequency": {
+			"amount": "2-3",
+			"cadence": "days"
+		},
+		"light": "partly_shaded",
+		"soil": "Peat-based potting mix",
+		"image": "bird_nest"
+	}, 
+	{
+		"common_name": "Beavertail Cactus",
+		"botanical_name": "Opuntia basilaris",
+		"care": "easy",
+		"water_frequency": {
+			"amount": "1-2",
+			"cadence": "month"
+		},
+		"light": "full_sun",
+		"soil": "Porous, sandy or pebbly potting soil",
+		"image": "cactus"
+	},
+	{
+		"common_name": "Aloe Vera",
+		"botanical_name": "Aloe Vera, Aloe barbadensis",
+		"care": "easy",
+		"water_frequency": {
+			"amount": "2-3",
+			"cadence": "month"
+		},
+		"light": "full_sun",
+		"soil": "Well-drained potting soil",
+		"image": "aloe_vera"
+	},
+	{
+		"common_name": "Boston Fern",
+		"botanical_name": "Nephrolepis exaltata",
+		"care": "easy",
+		"water_frequency": {
+			"amount": "2-3",
+			"cadence": "week"
+		},
+		"light": "partly_sun",
+		"soil": "Moist, humusy, well-drained soil",
+		"image": "boston_fern"
+	}
 ]
 
 const users = [

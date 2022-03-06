@@ -52,3 +52,24 @@
   justify-content: center;
   justify-items: center;
 }
+
+/* Plant Card */
+
+.plant-card {
+  width: 100%;
+  color: black;
+  background-color: #fac400; 
+}
+
+.link {
+  text-decoration: none;
+}
+
+.plant-card img {
+  width: 82px;
+  height: 120px;
+}
+
+.plant-card .img-container {
+  height: 180px;
+}
