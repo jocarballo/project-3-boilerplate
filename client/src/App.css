@@ -17,13 +17,6 @@
   height: 500px;
 }
 
-.navbar {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 40px;
-  margin-top: 40px;
-}
-
 .nav-login {
   margin-right: 30px;
   text-decoration: none;
