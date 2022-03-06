@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useQueryParam, StringParam } from "use-query-params";
+import Navbar from "../components/Navbar";
 
 export default function Plants() {
   const [query, setQuery] = useQueryParam("query", StringParam);
@@ -41,22 +42,29 @@ export default function Plants() {
 
   return (
     <>
+        <Navbar/>
       <h1>Here you can see all the plants</h1>
-      <ul>
-        {filteredPlants.map((plant, i) => (
-          <li>
-            <div className="card" style={{background: '#fac400'}}>
-              <img src="..." className="card-img-top" alt="..." />
-              <div className="card-body" style={{background: 'white'}}>
-                <h5 className="card-title">{plant.common_name}</h5>
-                <p className="card-text">
-                  {plant.description}
-                </p>
+      <div className="container">
+        <div className="row">
+          {filteredPlants.map((plant, i) => (
+            <div className="col">
+              <div
+                className="card"
+                style={{ background: "#fac400", width: "18rem" }}
+              >
+                <img src="..." className="card-img-top" alt="..." />
+                <div
+                  className="card-body rounded-top rounded-4"
+                  style={{ background: "white" }}
+                >
+                  <h5 className="card-title">{plant.common_name}</h5>
+                  <p className="card-text">{plant.description}</p>
+                </div>
               </div>
             </div>
-          </li>
-        ))}
-      </ul>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
