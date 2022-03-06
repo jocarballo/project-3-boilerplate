@@ -48,6 +48,7 @@ export default function Plants() {
         <div className="row">
           {filteredPlants.map((plant, i) => (
             <div className="col">
+            <Link to={`/plants/${plant._id}`}>
               <div
                 className="card"
                 style={{ background: "#fac400", width: "18rem" }}
@@ -61,21 +62,11 @@ export default function Plants() {
                   <p className="card-text">{plant.description}</p>
                 </div>
               </div>
+              </Link>
             </div>
           ))}
         </div>
       </div>
     </>
   );
-}
-
-{
-  /* <div className="allPlants">
-  {filteredPlants.map((plant, i) => (
-    <ul key={i} className="plant">
-      <div>Common Name: {plant.common_name}</div>
-      <Link to={`/plants/${plant._id}`}>Details</Link>
-    </ul>
-  ))}
-</div>; */
 }
