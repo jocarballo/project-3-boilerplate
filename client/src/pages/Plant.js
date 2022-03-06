@@ -4,13 +4,14 @@ import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PlantCharacteristics from "../components/PlantCharacteristics";
 
-
 const Plant = () => {
   const { plantId } = useParams();
 
   const [plant, setPlant] = useState([]);
 
   const storedToken = localStorage.getItem("authToken");
+
+  let showAddToGardenButton = storedToken !== undefined;
 
   useEffect(() => {
     //fetch the data
@@ -25,11 +26,11 @@ const Plant = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  console.log("Water frequency", plant.water_frequency)
+  console.log("Water frequency", plant.water_frequency);
 
-  let waterFrequencyMessage = ""
-  if(plant.water_frequency != undefined) {
-    waterFrequencyMessage = `${plant.water_frequency.amount} per ${plant.water_frequency.cadence}`
+  let waterFrequencyMessage = "";
+  if (plant.water_frequency != undefined) {
+    waterFrequencyMessage = `${plant.water_frequency.amount} per ${plant.water_frequency.cadence}`;
   }
 
   return (
@@ -51,15 +52,27 @@ const Plant = () => {
               </div>
               <div className="row">
                 <div className="col">
-                  <PlantCharacteristics title='Watering' image='/images/watering.svg' description={waterFrequencyMessage}/>
+                  <PlantCharacteristics
+                    title="Watering"
+                    image="/images/watering.svg"
+                    description={waterFrequencyMessage}
+                  />
                 </div>
 
                 <div className="col">
-                  <PlantCharacteristics title='Watering' image='/images/watering.svg' description={waterFrequencyMessage}/>
+                  <PlantCharacteristics
+                    title="Watering"
+                    image="/images/watering.svg"
+                    description={waterFrequencyMessage}
+                  />
                 </div>
 
                 <div className="col">
-                  <PlantCharacteristics title='Watering' image='/images/watering.svg' description={waterFrequencyMessage}/>
+                  <PlantCharacteristics
+                    title="Watering"
+                    image="/images/watering.svg"
+                    description={waterFrequencyMessage}
+                  />
                 </div>
               </div>
               <div className="row">
@@ -68,12 +81,16 @@ const Plant = () => {
               <div className="row plant-description">
                 <div>{plant.description}</div>
               </div>
-              <div className="row">
-                <div className="col-6">
-                  <p></p>
-                  <button type="button" class="btn btn-dark">Add to my Garden</button>
+              {showAddToGardenButton && (
+                <div className="row">
+                  <div className="col-6">
+                    <p></p>
+                    <button type="button" class="btn btn-dark">
+                      Add to my Garden
+                    </button>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -81,11 +98,5 @@ const Plant = () => {
     </div>
   );
 };
-
-{
-  /* <div>{plant.common_name}</div>
-                <div>{plant.scientific_name}</div>
-                <div>{plant.description}</div> */
-}
 
 export default Plant;
