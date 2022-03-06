@@ -8,7 +8,7 @@ export default function Navbar() {
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                <img src="/home-icon.jpeg" alt="" width="30" height="24" className="d-inline-block align-text-top" />
+                <img src="/home-icon.jpeg" alt="" width="24" height="24" className="d-inline-block align-text-top me-2" />
                 Planty
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,9 +20,14 @@ export default function Navbar() {
                     <Link className="nav-link" to='/plants'>Plants</Link>
                 </div>
                 </div>
+                <form class="d-flex">
+                    <Link className="btn btn-outline-success me-2" to='/login'>Login</Link>
+                    <Link className="btn btn-outline-success me-2" to='/signup'>Signup</Link>
+                </form>
             </div>
         </nav>
     )
+
 }
 
 {/* <nav className='navbar'>
