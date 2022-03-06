@@ -23,7 +23,8 @@ const plants = [
 		},
 		"light": "partly_sun",
 		"soil": "Average potting soil to rich loam; good drainage",
-		"image": "peperomia"
+		"image": "peperomia",
+		"description": "Peperomia obtusifolia is a bushy upright plant that is native to southern Florida and the Caribbean. As a houseplant, it typically grows on thick erect stems to 12” tall. Waxy, elliptic, thick dark green leaves (to 6” long). Small greenish-white flowers on spikes (to 5” long)."
 	},
 	{
 		"common_name": "Watermelon Peperomia",
@@ -35,7 +36,8 @@ const plants = [
 		},
 		"light": "partly_sun",
 		"soil": "Well-draining, loose soil",
-		"image": "watermelon"
+		"image": "watermelon",
+		"description": "Watermelon peperomia is the common name used for a popular species from the Peperomia genus named Peperomia argyreia. Named watermelon for its similarity of appearance to the rind (skin) of a watermelon."
 	},
 	{
 		"common_name": "Croton",
@@ -47,7 +49,8 @@ const plants = [
 		},
 		"light": "partly_sun",
 		"soil": "Well-drained potting soil",
-		"image": "croton"
+		"image": "croton",
+		"description": "Croton, also called “garden croton,” are native to the tropical forests of southeast Asia and Oceania. In the wild, they grow as large shrubs, reaching up to 10 feet tall (in the home or garden, they stay a lot smaller)."
 	},
 	{
 		"common_name": "Bird Nest Fern",
@@ -59,7 +62,8 @@ const plants = [
 		},
 		"light": "partly_shaded",
 		"soil": "Peat-based potting mix",
-		"image": "bird_nest"
+		"image": "bird_nest",
+		"description": "Bird's nest ferns (Asplenium nidus) are naturally epiphytic, meaning they grow on the surface of other plants. In their rainforest homes, they can be found growing high in the crooks of trees. They form a series of erect, spoon-shaped, bright green fronds that rise from a central rosette. Healthy plants can have fronds up to 5 feet long, but bird's nest ferns kept as houseplants typically have fronds that grow only about 2 feet long. These ferns have a slow growth rate. They're best planted in the spring, though houseplants generally can be started year-round."
 	}, 
 	{
 		"common_name": "Beavertail Cactus",
@@ -71,7 +75,8 @@ const plants = [
 		},
 		"light": "full_sun",
 		"soil": "Porous, sandy or pebbly potting soil",
-		"image": "cactus"
+		"image": "cactus",
+		"description": "Opuntia basilaris, the beavertail cactus or beavertail pricklypear, is a cactus species found in the southwest United States. It occurs mostly in the Mojave, Anza-Borrego, and Colorado Deserts, as well as in the Colorado Plateau and northwest Mexico. It is also found throughout the Grand Canyon and Colorado River region as well as into southern Utah and Nevada, and in the western Arizona regions along the Lower Colorado River Valley."
 	},
 	{
 		"common_name": "Aloe Vera",
@@ -83,7 +88,8 @@ const plants = [
 		},
 		"light": "full_sun",
 		"soil": "Well-drained potting soil",
-		"image": "aloe_vera"
+		"image": "aloe_vera",
+		"description": "Aloe vera is a succulent plant species of the genus Aloe. The plant is stemless or very short-stemmed with thick, greenish, fleshy leaves that fan out from the plants central stem. The margin of the leaf is serrated with small teeth."
 	},
 	{
 		"common_name": "Boston Fern",
@@ -95,7 +101,8 @@ const plants = [
 		},
 		"light": "partly_sun",
 		"soil": "Moist, humusy, well-drained soil",
-		"image": "boston_fern"
+		"image": "boston_fern",
+		"description": "Boston ferns (Nephrolepis exaltata) are popular houseplants and proper Boston fern care is essential to keeping this plant healthy. Learning how to take care of a Boston fern isn’t difficult, but it is specific. Below we have listed a few care tips for a Boston fern so that you can provide everything your fern needs to be happy and beautiful."
 	}
 ]
 

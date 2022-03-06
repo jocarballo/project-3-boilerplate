@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
+
 const Plant = () => {
   const { plantId } = useParams();
 
@@ -29,7 +30,11 @@ const Plant = () => {
       <div className="container-fluid">
         <div className="row">
           <div className="col-4" style={{ background: "#fac400" }}>
-            IMAGE
+            <img
+              src={`/images/plants/${plant.image}.png`}
+              alt="..."
+              className="plant-image"
+            />
           </div>
           <div className="col" style={{ background: "#DFF6FF" }}>
             <div className="container">

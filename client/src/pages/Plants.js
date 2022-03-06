@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useQueryParam, StringParam } from "use-query-params";
 import Navbar from "../components/Navbar";
+import PlantCard from "../components/PlantCard";
 
 export default function Plants() {
   const [query, setQuery] = useQueryParam("query", StringParam);
@@ -47,32 +48,10 @@ export default function Plants() {
       <div className="container">
         <div className="row">
           {filteredPlants.map((plant, i) => (
-            <div className="col-3 mt-4">
-              <Link className="link" to={`/plants/${plant._id}`}>
-                <div
-                  className="plant-card shadow rounded"
-                >
-                  <div className="img-container d-flex justify-content-center align-items-center">
-                    <img
-                      src={`images/plants/${plant.image}.png`}
-                      className="card-img-top"
-                      alt="..."
-                    />
-                  </div>
-
-                  <div
-                    className="card-body rounded-top rounded-4"
-                    style={{ background: "white" }}
-                  >
-                    <h5 className="card-title">{plant.common_name}</h5>
-                    <p className="card-text">{plant.description}</p>
-                  </div>
-                </div>
-              </Link>
-            </div>
+            <PlantCard plant={plant}/>
           ))}
         </div>
-      </div>
+      </div> 
     </>
   );
 }
