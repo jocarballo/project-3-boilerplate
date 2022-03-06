@@ -74,6 +74,29 @@
   height: 180px;
 }
 
+.plant-description {
+  padding-top: 30px;
+}
+
 .plant-image {
   height: 500px;
+}
+
+
+/* PlantCharacteristics Component */
+
+.plant-characteristic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.plant-characteristic-img {
+  width: 56px;
+  height: 56px;
+  background-color: #fac400;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 8px;
 }

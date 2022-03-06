@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
+import PlantCharacteristics from "../components/PlantCharacteristics";
 
 
 const Plant = () => {
@@ -24,6 +25,13 @@ const Plant = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  console.log("Water frequency", plant.water_frequency)
+
+  let waterFrequencyMessage = ""
+  if(plant.water_frequency != undefined) {
+    waterFrequencyMessage = `${plant.water_frequency.amount} per ${plant.water_frequency.cadence}`
+  }
+
   return (
     <div>
       <Navbar />
@@ -42,10 +50,29 @@ const Plant = () => {
                 <div>{plant.common_name}</div>
               </div>
               <div className="row">
-                <div>{plant.scientific_name}</div>
+                <div className="col">
+                  <PlantCharacteristics title='Watering' image='/images/watering.svg' description={waterFrequencyMessage}/>
+                </div>
+
+                <div className="col">
+                  <PlantCharacteristics title='Watering' image='/images/watering.svg' description={waterFrequencyMessage}/>
+                </div>
+
+                <div className="col">
+                  <PlantCharacteristics title='Watering' image='/images/watering.svg' description={waterFrequencyMessage}/>
+                </div>
               </div>
               <div className="row">
+                <div>{plant.scientific_name}</div>
+              </div>
+              <div className="row plant-description">
                 <div>{plant.description}</div>
+              </div>
+              <div className="row">
+                <div className="col-6">
+                  <p></p>
+                  <button type="button" class="btn btn-dark">Add to my Garden</button>
+                </div>
               </div>
             </div>
           </div>
