@@ -100,3 +100,23 @@
   object-fit: cover;
   padding: 8px;
 }
+
+
+/* Botanic Formulaire */
+
+.botanic-formulaire {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 40px;
+  margin-top: 60px;
+  margin-right: 400px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: #fac400;
+}
+
+.question-garden-title {
+  padding-bottom: 20px;
+}

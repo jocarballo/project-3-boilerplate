@@ -29,9 +29,28 @@ const Plant = () => {
   console.log("Water frequency", plant.water_frequency);
 
   let waterFrequencyMessage = "";
-  if (plant.water_frequency != undefined) {
+  if (plant.water_frequency !== undefined) {
     waterFrequencyMessage = `${plant.water_frequency.amount} per ${plant.water_frequency.cadence}`;
   }
+
+  // add plant to garden
+  const addPlantToGarden = () => {
+    // request 'api/plants'
+    // for every request to a project route we need to also send the token
+    axios
+      .post(
+        `/users/plants/${plantId}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
+      .then((response) => {
+        console.log("Added plant to garden.");
+        showAddToGardenButton = false;
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
@@ -85,7 +104,11 @@ const Plant = () => {
                 <div className="row">
                   <div className="col-6">
                     <p></p>
-                    <button type="button" class="btn btn-dark">
+                    <button
+                      type="button"
+                      className="btn btn-dark"
+                      onClick={addPlantToGarden}
+                    >
                       Add to my Garden
                     </button>
                   </div>
