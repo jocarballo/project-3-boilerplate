@@ -9,7 +9,7 @@ export default function Navbar() {
     console.log("Is Logged In", isUserLoggedIn)
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container-fluid">
                 <a className="navbar-brand" href="#">
                 <img src="/home-icon.jpeg" alt="" width="24" height="24" className="d-inline-block align-text-top me-2" />

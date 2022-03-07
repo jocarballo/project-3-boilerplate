@@ -28,12 +28,12 @@ router.get("/garden", (req, res, next) => {
   console.log("Requesting user plants ...")
   const userToken = req.headers.authorization;
   const token = userToken.split(" ");
-  const user = jwt.verify(token[1], process.env.JWT_SECRET);
+  const userData = jwt.verify(token[1], process.env.JWT_SECRET);
 
-  User.findById(user._id)
+  User.findById(userData._id)
     // with populate I get the entire object instead only the id from the plant
     .populate("plants")
-    .then((user) => {
+    .then(user => {
       res.status(200).json(user.plants);
     })
     .catch((err) => next(err));

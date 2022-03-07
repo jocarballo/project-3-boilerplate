@@ -1,4 +1,8 @@
 
+.App {
+  font-family: 'Hubballi', cursive;
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -8,6 +12,16 @@
   font-size: calc(10px + 2vmin);
 }
 
+.botanical-name {
+  font-weight: bold;
+  padding-top: 40px;
+}
+
+.common-name {
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
 .homepage-image {
   width: 100vw;
   height: 500px;
@@ -15,7 +29,7 @@
 
 
 .plant-title {
-  font-family: 'Amatic SC', cursive;
+  font-family: 'Hubballi', cursive;
   font-size: 80px;
 }
 
@@ -44,6 +58,11 @@
   margin-bottom: auto;
   justify-content: center;
   justify-items: center;
+}
+
+
+.title {
+  font-family: 'Playfair Display', serif;
 }
 
 #signup-content-container {
@@ -119,4 +138,38 @@
 
 .question-garden-title {
   padding-bottom: 20px;
+}
+
+
+/* Home Page */
+
+.home-container {
+  background-color: #8ee7df;
+  border-radius: 10px;
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.home-container-left {
+  padding: 64px 48px;
+}
+
+.home-container-subtitle {
+  opacity: 0.6;
+  font-size: larger;
+  line-height: 95%;
+}
+
+.homepage-image {
+  width: 260px;
+  height: 350px;
+}
+
+/* Plant Details */
+
+#plant-details-container-right {
+  display: flex;
+  flex-direction: column;
+  padding-left: 120px;
+  padding-right: 120px;
 }

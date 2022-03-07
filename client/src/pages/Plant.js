@@ -9,17 +9,18 @@ const Plant = () => {
 
   const [plant, setPlant] = useState([]);
 
-  // ADD_TO_GARDEN
+  let botanicalName = ""
+  if(plant.botanical_name !== undefined) {
+    botanicalName = plant.botanical_name
+  }
+
   const [gardenButton, setGardenButton] = useState([]);
 
   const storedToken = localStorage.getItem("authToken");
 
   useEffect(() => {
-    //fetch the data
     axios
-      .get(`/plants/${plantId}`, {
-        headers: { Authorization: `Bearer ${storedToken}` },
-      })
+      .get(`/plants/${plantId}`)
       .then((response) => {
         console.log(response.data);
         setPlant(response.data);
@@ -37,10 +38,9 @@ const Plant = () => {
         } else {
           setGardenButton(ADD_TO_GARDEN);
         }
-      });
+      })
+      .catch((err) => console.log(err));;
   }, []);
-
-  console.log("Water frequency", plant.water_frequency);
 
   let waterFrequencyMessage = "";
   if (plant.water_frequency !== undefined) {
@@ -59,34 +59,29 @@ const Plant = () => {
       )
       .then((response) => {
         console.log("Added plant to garden.");
-        setGardenButton(REMOVE_FROM_GARDEN)
+        setGardenButton(REMOVE_FROM_GARDEN);
       })
       .catch((err) => console.log(err));
   };
-
 
   // remove plant from garden
   const removePlantFromGarden = () => {
     axios
-      .delete(
-        `/users/plants/${plantId}`,
-        {
-          headers: { Authorization: `Bearer ${storedToken}` },
-        }
-      )
+      .delete(`/users/plants/${plantId}`, {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
       .then((response) => {
         console.log("Removed plant from garden.");
-        setGardenButton(ADD_TO_GARDEN)
+        setGardenButton(ADD_TO_GARDEN);
       })
       .catch((err) => console.log(err));
   };
 
-
   return (
     <div>
       <Navbar />
-      <div className="container-fluid">
-        <div className="row">
+      <div className="container-fluid plant-container">
+        <div className="row fill">
           <div className="col-4" style={{ background: "#fac400" }}>
             <img
               src={`/images/plants/${plant.image}.png`}
@@ -95,9 +90,12 @@ const Plant = () => {
             />
           </div>
           <div className="col" style={{ background: "#DFF6FF" }}>
-            <div className="container">
-              <div className="row plant-title">
-                <div>{plant.common_name}</div>
+            <div className="container" id="plant-details-container-right">
+              <div className="row">
+                <div className="botanical-name">{botanicalName.toUpperCase()}</div>
+              </div>
+              <div className="row">
+                <h1 className="title common-name">{plant.common_name}</h1>
               </div>
               <div className="row">
                 <div className="col">
@@ -123,9 +121,6 @@ const Plant = () => {
                     description={waterFrequencyMessage}
                   />
                 </div>
-              </div>
-              <div className="row">
-                <div>{plant.botanical_name}</div>
               </div>
               <div className="row plant-description">
                 <div>{plant.description}</div>
