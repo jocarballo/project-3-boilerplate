@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import QuestionFormulaire from "../components/QuestionFormulaire";
+import PlantCard from "../components/PlantCard";
+import Navbar from "../components/Navbar";
+
+
 
 export default function Garden() {
   const [plants, setPlants] = useState([]);
@@ -33,16 +37,11 @@ export default function Garden() {
 
   return (
     <>
+        <Navbar />
       <h1>Garden</h1>
       <div>
-        {plants.map((plant, i) => (
-          <ul key={i} className="plant">
-            <div>Common name: {plant.common_name}</div>
-            <p></p>
-            <div>Scientific name: {plant.scientific_name}</div>
-            <p></p>
-            <div>Description: {plant.description}</div>
-          </ul>
+      {plants.map((plant, i) => (
+        <PlantCard plant={plant} index={i}/>
         ))}
       </div>
       <p></p>
@@ -51,26 +50,3 @@ export default function Garden() {
   );
 }
 
-{
-  /* <div className="form-floating">
-          <select
-            className="form-select"
-            id="floatingSelect"
-            aria-label="Floating label select example"
-          >
-         
-            {plants.map((plant, i) => (
-                <>
-                <option key={i} className="plant" />
-            
-                    <option selected>Choose the plant</option>
-                    <option defaultValue={1}>{plant.common_name}</option>
-        
-                </>
-            ))}
-     
-            
-          </select>
-          <label htmlFor="floatingSelect">Works with selects</label>
-        </div> */
-}

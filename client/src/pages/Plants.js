@@ -5,6 +5,8 @@ import { useQueryParam, StringParam } from "use-query-params";
 import Navbar from "../components/Navbar";
 import PlantCard from "../components/PlantCard";
 
+
+
 export default function Plants() {
   const [query, setQuery] = useQueryParam("query", StringParam);
   console.log("query: ", query);
@@ -48,7 +50,7 @@ export default function Plants() {
       <div className="container">
         <div className="row">
           {filteredPlants.map((plant, i) => (
-            <PlantCard plant={plant}/>
+            <PlantCard plant={plant} index={i}/>
           ))}
         </div>
       </div> 

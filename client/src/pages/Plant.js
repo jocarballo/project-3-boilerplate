@@ -9,9 +9,10 @@ const Plant = () => {
 
   const [plant, setPlant] = useState([]);
 
-  const storedToken = localStorage.getItem("authToken");
+  // ADD_TO_GARDEN
+  const [gardenButton, setGardenButton] = useState([]);
 
-  let showAddToGardenButton = storedToken !== undefined;
+  const storedToken = localStorage.getItem("authToken");
 
   useEffect(() => {
     //fetch the data
@@ -24,6 +25,19 @@ const Plant = () => {
         setPlant(response.data);
       })
       .catch((err) => console.log(err));
+
+    axios
+      .get("/garden", {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        let plantIds = response.data.map((plant) => plant._id);
+        if (plantIds.includes(plantId)) {
+          setGardenButton(REMOVE_FROM_GARDEN);
+        } else {
+          setGardenButton(ADD_TO_GARDEN);
+        }
+      });
   }, []);
 
   console.log("Water frequency", plant.water_frequency);
@@ -35,8 +49,6 @@ const Plant = () => {
 
   // add plant to garden
   const addPlantToGarden = () => {
-    // request 'api/plants'
-    // for every request to a project route we need to also send the token
     axios
       .post(
         `/users/plants/${plantId}`,
@@ -47,10 +59,28 @@ const Plant = () => {
       )
       .then((response) => {
         console.log("Added plant to garden.");
-        showAddToGardenButton = false;
+        setGardenButton(REMOVE_FROM_GARDEN)
       })
       .catch((err) => console.log(err));
   };
+
+
+  // remove plant from garden
+  const removePlantFromGarden = () => {
+    axios
+      .delete(
+        `/users/plants/${plantId}`,
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
+      .then((response) => {
+        console.log("Removed plant from garden.");
+        setGardenButton(ADD_TO_GARDEN)
+      })
+      .catch((err) => console.log(err));
+  };
+
 
   return (
     <div>
@@ -95,12 +125,12 @@ const Plant = () => {
                 </div>
               </div>
               <div className="row">
-                <div>{plant.scientific_name}</div>
+                <div>{plant.botanical_name}</div>
               </div>
               <div className="row plant-description">
                 <div>{plant.description}</div>
               </div>
-              {showAddToGardenButton && (
+              {gardenButton === ADD_TO_GARDEN && (
                 <div className="row">
                   <div className="col-6">
                     <p></p>
@@ -114,6 +144,20 @@ const Plant = () => {
                   </div>
                 </div>
               )}
+              {gardenButton === REMOVE_FROM_GARDEN && (
+                <div className="row">
+                  <div className="col-6">
+                    <p></p>
+                    <button
+                      type="button"
+                      className="btn btn-dark"
+                      onClick={removePlantFromGarden}
+                    >
+                      Remove from my Garden
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -121,5 +165,8 @@ const Plant = () => {
     </div>
   );
 };
+
+const ADD_TO_GARDEN = "Add";
+const REMOVE_FROM_GARDEN = "Remove";
 
 export default Plant;

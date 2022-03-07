@@ -28,10 +28,10 @@ router.get('/plants/:id', (req, res, next) => {
 
 // update a plant
 router.put('/plants/:id', (req, res, next) => {
-  const { common_name, scientific_name, description } = req.body
+  const { common_name, botanical_name, description } = req.body
   Plant.findByIdAndUpdate(req.params.id, {
       common_name,
-      scientific_name, 
+      botanical_name, 
       description
   }, { new: true })
     .then(updatedPlant => {

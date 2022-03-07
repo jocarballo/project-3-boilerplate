@@ -1,9 +1,13 @@
-import React from 'react'
+import { React, useContext} from 'react'
 import { Link } from 'react-router-dom'
-
-
+import { AuthContext } from "../context/auth";
 
 export default function Navbar() {
+    const {logoutUser, isLoggedIn} = useContext(AuthContext);
+
+    let isUserLoggedIn = isLoggedIn
+    console.log("Is Logged In", isUserLoggedIn)
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
@@ -18,12 +22,21 @@ export default function Navbar() {
                 <div className="navbar-nav">
                     <Link className="nav-link active" aria-current="page" to='/'>Home</Link>
                     <Link className="nav-link" to='/plants'>Plants</Link>
+                    {isUserLoggedIn && (
+                        <Link className="nav-link" to='/garden'>My Garden</Link>
+                    )}
                 </div>
                 </div>
-                <form class="d-flex">
+                {!isUserLoggedIn && (
+                    <form class="d-flex">
                     <Link className="btn btn-outline-success me-2" to='/login'>Login</Link>
                     <Link className="btn btn-outline-success me-2" to='/signup'>Signup</Link>
                 </form>
+                )}
+
+                {isUserLoggedIn && (
+                    <button className="btn btn-outline-success me-2" onClick={logoutUser}>Logout</button>
+                )}
             </div>
         </nav>
     )

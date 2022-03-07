@@ -84,11 +84,16 @@ router.post("/users/plants/:plantId", (req, res, next) => {
 });
 
 // delete a plant from user
-router.delete("/users/:id/plants/:plantId", (req, res, next) => {
+router.delete("/users/plants/:plantId", (req, res, next) => {
+
+  const userToken = req.headers.authorization;
+  const token = userToken.split(" ");
+  const user = jwt.verify(token[1], process.env.JWT_SECRET);
+
   const plantId = req.params.plantId;
   Plant.findById(plantId)
     .then((plant) => {
-      const userId = req.params.id;
+      const userId = user._id;
       return User.findByIdAndUpdate(
         userId,
         { $pull: { plants: plant._id } },
