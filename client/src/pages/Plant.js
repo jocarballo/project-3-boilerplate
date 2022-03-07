@@ -82,15 +82,15 @@ const Plant = () => {
       <Navbar />
       <div className="container-fluid plant-container">
         <div className="row fill">
-          <div className="col-4" style={{ background: "#fac400" }}>
+          <div className="col-4 d-flex" style={{ background: "#fac400" }}>
             <img
               src={`/images/plants/${plant.image}.png`}
               alt="..."
-              className="plant-image"
+              className="plant-image align-self-center"
             />
           </div>
-          <div className="col" style={{ background: "#DFF6FF" }}>
-            <div className="container" id="plant-details-container-right">
+          <div className="col d-flex" style={{ background: "#DFF6FF" }}>
+            <div className="container align-self-center" id="plant-details-container-right">
               <div className="row">
                 <div className="botanical-name">{botanicalName.toUpperCase()}</div>
               </div>
@@ -145,7 +145,7 @@ const Plant = () => {
                     <p></p>
                     <button
                       type="button"
-                      className="btn btn-dark"
+                      className="btn btn-dark button-remove-add-plant"
                       onClick={removePlantFromGarden}
                     >
                       Remove from my Garden

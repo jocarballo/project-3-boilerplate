@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
+import { HOME_TAB } from "../utilities";
+
 
 export default function Home() {
   let query = "";
@@ -19,7 +21,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      <Navbar selectedTab={HOME_TAB}/>
       <div className="container home-container">
         <div className="row">
           <div className="col home-container-left">

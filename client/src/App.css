@@ -1,3 +1,7 @@
+.navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .show>.nav-link{
+  color: #ef8664;
+  font-weight: bold;
+}
 
 .App {
   font-family: 'Hubballi', cursive;
@@ -10,6 +14,10 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+}
+
+.button-remove-add-plant {
+  margin-top: 10px;
 }
 
 .botanical-name {
@@ -26,7 +34,6 @@
   width: 100vw;
   height: 500px;
 }
-
 
 .plant-title {
   font-family: 'Hubballi', cursive;
@@ -170,6 +177,10 @@
 #plant-details-container-right {
   display: flex;
   flex-direction: column;
-  padding-left: 120px;
-  padding-right: 120px;
+  width: 80%;
 }
+
+
+/* padding-left: 120px;
+padding-right: 120px;
+padding-top: 80px; */

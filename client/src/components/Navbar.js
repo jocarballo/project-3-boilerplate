@@ -1,9 +1,22 @@
 import { React, useContext} from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from "../context/auth";
+import { HOME_TAB } from "../utilities";
+import { PLANTS_TAB } from "../utilities";
+import { GARDEN_TAB } from "../utilities";
 
-export default function Navbar() {
+
+export default function Navbar(props) {
     const {logoutUser, isLoggedIn} = useContext(AuthContext);
+
+    const selectedTab = props.selectedTab
+    let tabClasses = {}
+    tabClasses[HOME_TAB] = "nav-link"
+    tabClasses[PLANTS_TAB] = "nav-link"
+    tabClasses[GARDEN_TAB] = "nav-link"
+
+    tabClasses[selectedTab] = "nav-link active"
+
 
     let isUserLoggedIn = isLoggedIn
     console.log("Is Logged In", isUserLoggedIn)
@@ -20,15 +33,15 @@ export default function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
-                    <Link className="nav-link active" aria-current="page" to='/'>Home</Link>
-                    <Link className="nav-link" to='/plants'>Plants</Link>
+                    <Link className={tabClasses[HOME_TAB]} aria-current="page" to='/'>Home</Link>
+                    <Link className={tabClasses[PLANTS_TAB]} to='/plants'>Plants</Link>
                     {isUserLoggedIn && (
-                        <Link className="nav-link" to='/garden'>My Garden</Link>
+                        <Link className={tabClasses[GARDEN_TAB]} to='/garden'>My Garden</Link>
                     )}
                 </div>
                 </div>
                 {!isUserLoggedIn && (
-                    <form class="d-flex">
+                    <form className="d-flex">
                     <Link className="btn btn-outline-success me-2" to='/login'>Login</Link>
                     <Link className="btn btn-outline-success me-2" to='/signup'>Signup</Link>
                 </form>
@@ -42,7 +55,3 @@ export default function Navbar() {
     )
 
 }
-
-
-
- 

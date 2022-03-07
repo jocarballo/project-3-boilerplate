@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import QuestionFormulaire from "../components/QuestionFormulaire";
 import PlantCard from "../components/PlantCard";
 import Navbar from "../components/Navbar";
+import { GARDEN_TAB } from "../utilities";
 
 
 
@@ -37,7 +38,7 @@ export default function Garden() {
 
   return (
     <>
-        <Navbar />
+        <Navbar selectedTab={GARDEN_TAB}/>
       <h1>Garden</h1>
       <div>
       {plants.map((plant, i) => (

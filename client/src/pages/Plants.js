@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useQueryParam, StringParam } from "use-query-params";
 import Navbar from "../components/Navbar";
 import PlantCard from "../components/PlantCard";
+import { PLANTS_TAB } from "../utilities";
 
 
 
@@ -45,8 +46,7 @@ export default function Plants() {
 
   return (
     <>
-      <Navbar />
-      <h1>Here you can see all the plants</h1>
+      <Navbar selectedTab={PLANTS_TAB}/>
       <div className="container">
         <div className="row">
           {filteredPlants.map((plant, i) => (
