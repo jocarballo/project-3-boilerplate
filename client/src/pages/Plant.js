@@ -42,10 +42,36 @@ const Plant = () => {
       .catch((err) => console.log(err));;
   }, []);
 
+
+
   let waterFrequencyMessage = "";
   if (plant.water_frequency !== undefined) {
     waterFrequencyMessage = `${plant.water_frequency.amount} per ${plant.water_frequency.cadence}`;
   }
+
+  let soilFrequencyMessage = "";
+  if (plant.soil !== undefined) {
+    soilFrequencyMessage = `${plant.soil}`;
+  }
+
+  let lightFrquencyMessage = "";
+  if (plant.light !== undefined) {
+    lightFrquencyMessage = `${plant.light}`;
+    switch(plant.light) {
+      case "partly_sun":
+        lightFrquencyMessage = "Don't expose the plant directly to the sun";
+        break;
+      case "partly_shaded":
+        lightFrquencyMessage = "The plant need a bit of shadow and a bit of light";
+        break;
+      case "full_sun":
+        lightFrquencyMessage = "This plant needs a lot of light!";
+        break;
+      default:
+    }
+  }
+
+
 
   // add plant to garden
   const addPlantToGarden = () => {
@@ -101,24 +127,24 @@ const Plant = () => {
                 <div className="col">
                   <PlantCharacteristics
                     title="Watering"
-                    image="/images/watering.svg"
+                    image="/images/watering.png"
                     description={waterFrequencyMessage}
                   />
                 </div>
 
                 <div className="col">
                   <PlantCharacteristics
-                    title="Watering"
-                    image="/images/watering.svg"
-                    description={waterFrequencyMessage}
+                    title="Soil"
+                    image="/images/soil.png"
+                    description={soilFrequencyMessage}
                   />
                 </div>
 
                 <div className="col">
                   <PlantCharacteristics
-                    title="Watering"
-                    image="/images/watering.svg"
-                    description={waterFrequencyMessage}
+                    title="Light"
+                    image="/images/light.png"
+                    description={lightFrquencyMessage}
                   />
                 </div>
               </div>
