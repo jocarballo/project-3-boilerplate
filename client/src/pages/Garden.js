@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import QuestionFormulaire from "../components/QuestionFormulaire";
 import PlantCard from "../components/PlantCard";
 import Navbar from "../components/Navbar";
 import { GARDEN_TAB } from "../utilities";
@@ -9,14 +7,12 @@ import NotesSection from "../components/NotesSection";
 
 
 
-
-
 export default function Garden() {
+
   const [plants, setPlants] = useState([]);
-  
   console.log("garden here: ", plants);
 
-
+ 
   const storedToken = localStorage.getItem("authToken");
 
   // get all the plants from the user
@@ -41,6 +37,27 @@ export default function Garden() {
     getAllPlantsFromUser();
   }, []);
 
+
+  const [notes, setNotes] = useState([]);
+
+  // get all notes from user
+  const getAllNotesFromUser = () => {
+    axios
+      .get("/notes", {
+        headers: { Authorization: `Bearer ${storedToken}` },
+      })
+      .then((response) => {
+        setNotes(response.data)
+      })
+      .catch((err) => {
+        console.log("My error: ", err);
+      });
+  };
+
+  useEffect(() => {
+    getAllNotesFromUser();
+  }, []);
+
   return (
     <>
       <Navbar selectedTab={GARDEN_TAB} />
@@ -48,7 +65,7 @@ export default function Garden() {
         <div className="container">
           <div className="row">
             {plants.map((plant, i) => (
-              <PlantCard plant={plant} index={i} />
+              <PlantCard key={i} plant={plant} index={i} />
             ))}
           </div>
         </div>

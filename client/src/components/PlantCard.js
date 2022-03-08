@@ -4,12 +4,11 @@ import getColorByIndex from '../utilities'
 
 
 export default function PlantCard(props) {
-
     const plant = props.plant
 
     const index = props.index
     const backgroundColor = getColorByIndex(index)
-    console.log('backgroundColor: ', backgroundColor)
+   
 
     return (
         <div className="col-3 mt-4">

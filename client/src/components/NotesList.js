@@ -6,8 +6,8 @@ export default function NotesList(props) {
 
   return (
     <div>
-      {notes.map((note) => (
-              <NoteCard note={note} />
+      {notes.map((note, i) => (
+              <NoteCard key={i} note={note} />
             ))}
     </div>
   );
