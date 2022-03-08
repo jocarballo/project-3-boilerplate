@@ -39,7 +39,7 @@ const Plant = () => {
           setGardenButton(ADD_TO_GARDEN);
         }
       })
-      .catch((err) => console.log(err));;
+      .catch((err) => console.log(err));
   }, []);
 
 

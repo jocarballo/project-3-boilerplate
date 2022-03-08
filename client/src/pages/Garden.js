@@ -5,10 +5,17 @@ import QuestionFormulaire from "../components/QuestionFormulaire";
 import PlantCard from "../components/PlantCard";
 import Navbar from "../components/Navbar";
 import { GARDEN_TAB } from "../utilities";
+import NotesSection from "../components/NotesSection";
+
+
+
+
 
 export default function Garden() {
   const [plants, setPlants] = useState([]);
+  
   console.log("garden here: ", plants);
+
 
   const storedToken = localStorage.getItem("authToken");
 
@@ -37,47 +44,17 @@ export default function Garden() {
   return (
     <>
       <Navbar selectedTab={GARDEN_TAB} />
-      <h1>Garden</h1>
       <div>
-        {plants.map((plant, i) => (
-          <PlantCard plant={plant} index={i} />
-        ))}
+        <div className="container">
+          <div className="row">
+            {plants.map((plant, i) => (
+              <PlantCard plant={plant} index={i} />
+            ))}
+          </div>
+        </div>
       </div>
       <p></p>
-      <h1>Notes</h1>
-      <div>
-        <div className="form-floating">
-          <select
-            className="form-select"
-            id="floatingSelect"
-            aria-label="Floating label select example"
-            style={({ height: 100 }, { width: 500 })}
-          >
-            <option defaultValue>Choose your plant</option>
-            {plants.map((plant, i) => (
-              <option defaultValue={i}>{plant.common_name}</option>
-            ))}
-          </select>
-          <label htmlFor="floatingSelect">Works with selects</label>
-        </div>
-        <p></p>
-        <div class="form-floating">
-          <textarea
-            class="form-control"
-            placeholder="Leave a comment here"
-            id="floatingTextarea"
-          ></textarea>
-          <label for="floatingTextarea">Leave a note here</label>
-        </div>
-        <div class="mb-3">
-          <label for="formFileSm" class="form-label"></label>
-          <input
-            class="form-control form-control-sm"
-            id="formFileSm"
-            type="file"
-          />
-        </div>
-      </div>
+      <NotesSection plants={plants} notes={notes}/>
     </>
   );
 }
