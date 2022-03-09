@@ -27,7 +27,7 @@ export default function NotesSection(props) {
           text: text,
           plantId: plantId,
           watered: watered,
-          soilChanged: soilChanged
+          soil_changed: soilChanged
         },
         { headers: { Authorization: `Bearer ${storedToken}` } }
       )
@@ -49,6 +49,7 @@ export default function NotesSection(props) {
           <div className="col-6 d-flex justify-content-center">
             <div className="align-self-center">
               <h1>Notes</h1>
+              <h3>Create </h3>
               <form onSubmit={submitNote}>
                 <div className="form-floating">
                   <select
@@ -64,7 +65,7 @@ export default function NotesSection(props) {
                       </option>
                     ))}
                   </select>
-                  <label htmlFor="floatingSelect">Works with selects</label>
+                  <label htmlFor="floatingSelect">Plant</label>
                 </div>
                 <p></p>
                 <div className="form-floating">
@@ -76,26 +77,26 @@ export default function NotesSection(props) {
                   <label htmlFor="floatingTextarea">Leave a note here</label>
                 </div>
                 <p></p>
-                <div class="row mb-3">
-                  <div class="col">
+                <div className="row mb-3">
+                  <div className="col">
                     <div className="d-flex">
-                      <div class="form-check me-4">
+                      <div className="form-check me-4">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="gridCheck1"
                         />
-                        <label class="form-check-label" for="gridCheck1">
+                        <label className="form-check-label" htmlFor="gridCheck1">
                           Watered
                         </label>
                       </div>
-                      <div class="form-check">
+                      <div className="form-check">
                         <input
-                          class="form-check-input"
+                          className="form-check-input"
                           type="checkbox"
                           id="gridCheck1"
                         />
-                        <label class="form-check-label" for="gridCheck1">
+                        <label className="form-check-label" htmlFor="gridCheck1">
                           Soil changed
                         </label>
                       </div>

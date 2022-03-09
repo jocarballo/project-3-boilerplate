@@ -10,3 +10,4 @@ export default function getColorByIndex(index) {
 export const HOME_TAB = "home_tab"
 export const PLANTS_TAB = "plants_tab"
 export const GARDEN_TAB = "garden_tab"
+export const ASK_A_BOTANIC_TAB = "question_tab"

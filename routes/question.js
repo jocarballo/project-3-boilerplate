@@ -13,9 +13,9 @@ router.post('/questions', (req, res, next) => {
     const user = jwt.verify(token[1], process.env.JWT_SECRET);
     
     // associate the created question with the user.
-    const { title, message } = req.body
+    const { plant, title, message } = req.body
     
-    Question.create({ title, message })
+    Question.create({ plant_name: plant, title, message })
         .then(question => {
             return User.findByIdAndUpdate(
                 user._id,

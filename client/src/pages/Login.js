@@ -39,42 +39,47 @@ export default function Login() {
 
   return (
     <>
-      <div class="container">
-        <div class="row">
+      <div className="container">
+        <div className="row">
           <div class="col-6" id="login-content-container">
             <h1>Login</h1>
             <h2>Enter your plant paradise</h2>
             <form onSubmit={handleSubmit}>
-              <div class="mb-3">
-                <label htmlFor="username" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="username" className="form-label">
                   Username
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   id="username"
                   value={username}
                   onChange={handleUsername}
                 />
               </div>
-              <div class="mb-3">
-                <label htmlFor="password" class="form-label">
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">
                   Password
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="password"
                   aria-describedby="passwordHelp"
                   value={password}
                   onChange={handlePassword}
                 />
-                <div id="passwordHelp" class="form-text">
-                  We'll never share your password with anyone else.
+                <div class="col-auto">
+                  <span id="passwordHelpInline" class="form-text">
+                    Must be at least 4 characters (we'll never share your password with anyone else).
+                  </span>
                 </div>
               </div>
-              <div class="d-grid">
-                <button type="submit" class="btn btn-outline-success btn-block">
+              <div className="d-grid">
+                <button
+                  type="submit"
+                  className="btn btn-outline-success btn-block"
+                >
                   Login
                 </button>
               </div>
@@ -86,7 +91,7 @@ export default function Login() {
             </p>
           </div>
           <div
-            class="col-6 d-flex justify-content-center fill"
+            className="col-6 d-flex justify-content-center fill"
             id="login-banner-container"
           >
             <img id="login-banner-image" src="monstera_leaf.png" alt="" />
@@ -95,14 +100,4 @@ export default function Login() {
       </div>
     </>
   );
-}
-
-{
-  /* <form onSubmit={handleSubmit}>
-              <label htmlFor="username">Username:</label>
-              <input type="text" value={username} onChange={handleUsername} />
-              <label htmlFor="password">Password:</label>
-              <input type="text" value={password} onChange={handlePassword} />
-              <button type="submit">Log In</button>
-            </form> */
 }

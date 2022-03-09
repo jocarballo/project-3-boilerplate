@@ -11,12 +11,12 @@ export default function PlantCard(props) {
    
 
     return (
-        <div className="col-3 mt-4">
+        <div className="col-3 mt-4 mb-2">
               <Link className="link" to={`/plants/${plant._id}`}>
                 <div
                   className="plant-card shadow rounded"
                 >
-                  <div className="img-container d-flex justify-content-center align-items-center" style={{background: backgroundColor}}>
+                  <div className="img-container d-flex justify-content-center align-items-center rounded" style={{background: backgroundColor}}>
                     <img
                       src={`images/plants/${plant.image}.png`}
                       className="card-img-top"
@@ -25,7 +25,7 @@ export default function PlantCard(props) {
                   </div>
 
                   <div
-                    className="card-body rounded-top rounded-4"
+                    className="plant-card-body card-body rounded-top rounded-4"
                     style={{ background: "white" }}
                   >
                     <h5 className="card-title">{plant.common_name}</h5>

@@ -16,6 +16,10 @@
   font-size: calc(10px + 2vmin);
 }
 
+.badge-button {
+  padding-left: 15px;
+}
+
 .button-remove-add-plant {
   margin-top: 10px;
 }
@@ -43,19 +47,18 @@
   height: 500px;
 }
 
-.image-caroussel {
-  width: 30px;
-  height: 100px;
-}
-
 .note-card {
   width: 200px;
-  height: 250px;
 }
+
 
 .notes-container {
   padding-top: 30px;
   padding-bottom: 40px;
+}
+
+.note-line-break {
+  width: 300px;
 }
 
 .plant-care-checkboxes {
@@ -133,6 +136,9 @@
   height: 120px;
 }
 
+.plant-card-body {
+  height: 120px;
+}
 .plant-card .img-container {
   height: 180px;
 }
@@ -216,8 +222,3 @@
   flex-direction: column;
   width: 80%;
 }
-
-
-/* padding-left: 120px;
-padding-right: 120px;
-padding-top: 80px; */

@@ -3,6 +3,7 @@ const { Schema, model } = require("mongoose");
 
 const questionSchema = new Schema(
     {
+      plant_name: String,
       title: String,
       message: String,
       answer: String

@@ -6,7 +6,7 @@ import Home from './pages/Home';
 import Plants from './pages/Plants';
 import Plant from './pages/Plant';
 import Garden from './pages/Garden';
-
+import QuestionFormulaire from './pages/QuestionFormulaire';
 
 
 
@@ -20,6 +20,7 @@ function App() {
           <Route path='/plants' element={<Plants />} />
           <Route path='/plants/:plantId' element={<Plant />} />
           <Route path='/garden' element={<Garden />} />
+          <Route path='/question' element={<QuestionFormulaire />} />
         </Routes>
     </div>
   );

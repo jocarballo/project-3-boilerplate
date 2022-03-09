@@ -30,6 +30,7 @@ router.get("/notes", (req, res, next) => {
   const user = jwt.verify(token[1], process.env.JWT_SECRET);
 
   Note.find({user: user._id})
+  .populate('plant')
     .then((notes) => {
       console.log("User notes", notes)
       res.status(200).json(notes);
