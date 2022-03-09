@@ -15,6 +15,10 @@ function AuthProviderWrapper(props) {
 	}
 
 	const logoutUser = () => {
+		axios.delete("/basket")
+			.then(console.log("Deleted basket"))
+			.catch(err => console.log(err))
+			
 		// remove the token from local storage
 		localStorage.removeItem('authToken')
 		// update the state

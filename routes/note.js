@@ -2,7 +2,6 @@ const Note = require("../models/Note");
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const User = require("../models/User");
 const { UnauthorizedError } = require("express-jwt/lib");
 
 router.post("/notes", (req, res, next) => {
@@ -30,7 +29,7 @@ router.get("/notes", (req, res, next) => {
   const user = jwt.verify(token[1], process.env.JWT_SECRET);
 
   Note.find({user: user._id})
-  .populate('plant')
+    .populate('plant')
     .then((notes) => {
       console.log("User notes", notes)
       res.status(200).json(notes);

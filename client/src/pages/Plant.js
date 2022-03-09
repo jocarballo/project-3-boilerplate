@@ -3,16 +3,20 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import PlantCharacteristics from "../components/PlantCharacteristics";
+import { AuthContext } from "../context/auth";
+import { useContext } from "react";
 
 const Plant = () => {
   const { plantId } = useParams();
 
   const [plant, setPlant] = useState([]);
 
-  let botanicalName = ""
-  if(plant.botanical_name !== undefined) {
-    botanicalName = plant.botanical_name
+  let botanicalName = "";
+  if (plant.botanical_name !== undefined) {
+    botanicalName = plant.botanical_name;
   }
+
+  const { isLoggedIn } = useContext(AuthContext);
 
   const [gardenButton, setGardenButton] = useState([]);
 
@@ -42,8 +46,6 @@ const Plant = () => {
       .catch((err) => console.log(err));
   }, []);
 
-
-
   let waterFrequencyMessage = "";
   if (plant.water_frequency !== undefined) {
     waterFrequencyMessage = `${plant.water_frequency.amount} per ${plant.water_frequency.cadence}`;
@@ -57,12 +59,13 @@ const Plant = () => {
   let lightFrquencyMessage = "";
   if (plant.light !== undefined) {
     lightFrquencyMessage = `${plant.light}`;
-    switch(plant.light) {
+    switch (plant.light) {
       case "partly_sun":
         lightFrquencyMessage = "Don't expose the plant directly to the sun";
         break;
       case "partly_shaded":
-        lightFrquencyMessage = "The plant need a bit of shadow and a bit of light";
+        lightFrquencyMessage =
+          "The plant need a bit of shadow and a bit of light";
         break;
       case "full_sun":
         lightFrquencyMessage = "This plant needs a lot of light!";
@@ -70,8 +73,6 @@ const Plant = () => {
       default:
     }
   }
-
-
 
   // add plant to garden
   const addPlantToGarden = () => {
@@ -103,6 +104,22 @@ const Plant = () => {
       .catch((err) => console.log(err));
   };
 
+  // add plant to basket
+  const addPlantToBasket = () => {
+    axios
+      .put(
+        "/basket",
+        { plant: plantId },
+        {
+          headers: { Authorization: `Bearer ${storedToken}` },
+        }
+      )
+      .then(() => {
+        console.log("Added plant to basket.");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       <Navbar />
@@ -116,9 +133,14 @@ const Plant = () => {
             />
           </div>
           <div className="col d-flex" style={{ background: "#DFF6FF" }}>
-            <div className="container align-self-center" id="plant-details-container-right">
+            <div
+              className="container align-self-center"
+              id="plant-details-container-right"
+            >
               <div className="row">
-                <div className="botanical-name">{botanicalName.toUpperCase()}</div>
+                <div className="botanical-name">
+                  {botanicalName.toUpperCase()}
+                </div>
               </div>
               <div className="row">
                 <h1 className="title common-name">{plant.common_name}</h1>
@@ -175,6 +197,21 @@ const Plant = () => {
                       onClick={removePlantFromGarden}
                     >
                       Remove from my Garden
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {isLoggedIn && (
+                <div className="row">
+                  <div className="col-6">
+                    <p></p>
+                    <button
+                      type="button"
+                      className="btn btn-primary"
+                      onClick={addPlantToBasket}
+                    >
+                      Add to Basket
                     </button>
                   </div>
                 </div>

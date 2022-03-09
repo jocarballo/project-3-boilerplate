@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/auth";
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -23,10 +23,14 @@ export default function Login() {
         const token = response.data.authToken;
         // store the token
         storeToken(token);
-        verifyStoredToken().then(() => {
-          // redirect to home
-          navigate("/");
-        });
+        verifyStoredToken();
+      })
+      .then(() => {
+        axios.post("/basket");
+      })
+      .then(() => {
+        // redirect to home
+        navigate("/");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
@@ -71,7 +75,8 @@ export default function Login() {
                 />
                 <div class="col-auto">
                   <span id="passwordHelpInline" class="form-text">
-                    Must be at least 4 characters (we'll never share your password with anyone else).
+                    Must be at least 4 characters (we'll never share your
+                    password with anyone else).
                   </span>
                 </div>
               </div>
