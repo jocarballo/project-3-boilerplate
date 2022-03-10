@@ -22,13 +22,62 @@ export default function Home() {
           </div>
         </div>
         <div>
-            <h2>Videos with DIY</h2>
-            <div>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/y3e6Ijvs7v0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+          <h2>Videos with DIY</h2>
+          <div>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/y3e6Ijvs7v0"
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
         <div>
-            <h2>Useful Tips</h2>
+          <h2>Useful Tips</h2>
+          <div
+            id="carouselExampleControls"
+            className="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div className="carousel-inner">
+              <div className="carousel-item active">
+                <img src="..." className="d-block w-100" alt="..." />
+              </div>
+              <div className="carousel-item">
+                <img src="..." className="d-block w-100" alt="..." />
+              </div>
+              <div className="carousel-item">
+                <img src="..." className="d-block w-100" alt="..." />
+              </div>
+            </div>
+            <button
+              className="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev"
+            >
+              <span
+                className="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Previous</span>
+            </button>
+            <button
+              className="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next"
+            >
+              <span
+                className="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span className="visually-hidden">Next</span>
+            </button>
+          </div>
         </div>
       </div>
     </>
