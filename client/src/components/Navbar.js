@@ -1,10 +1,11 @@
-import { React, useContext } from "react";
+import { React, useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth";
 import { HOME_TAB } from "../utilities";
 import { PLANTS_TAB } from "../utilities";
 import { GARDEN_TAB } from "../utilities";
 import { ASK_A_BOTANIC_TAB } from "../utilities";
+import axios from "axios";
 
 export default function Navbar(props) {
   const { logoutUser, isLoggedIn } = useContext(AuthContext);
@@ -21,12 +22,25 @@ export default function Navbar(props) {
   let isUserLoggedIn = isLoggedIn;
   console.log("Is Logged In", isUserLoggedIn);
 
+  const [basketCounter, setBasketCounter] = useState(0);
+
+  // get the plants from basket
+  useEffect(() => {
+    axios
+      .get("/basket")
+      .then((response) => {
+        console.log("basket here:", response.data);
+        setBasketCounter(response.data.plants.length);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img
-            src="/home-icon.jpeg"
+            src="/images/home_page.png"
             alt=""
             width="24"
             height="24"
@@ -61,6 +75,18 @@ export default function Navbar(props) {
                 <Link className={tabClasses[ASK_A_BOTANIC_TAB]} to="/question">
                   Ask a Botanic
                 </Link>
+                <div>
+                  <img
+                    src="/images/cart.png"
+                    alt=""
+                    width="24"
+                    height="24"
+                    className="d-inline-block align-text-top me-2 cart-image"
+                  />
+                </div>
+                <span className="position-absolute top-2 start-150 translate-middle badge rounded-pill bg-danger badge-cart">
+                  {basketCounter}
+                </span>
               </>
             )}
           </div>

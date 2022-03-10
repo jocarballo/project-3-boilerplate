@@ -20,6 +20,11 @@
   padding-left: 15px;
 }
 
+.badge-cart {
+  margin-left: 1120px;
+  margin-top: 10px;
+}
+
 .button-remove-add-plant {
   margin-top: 10px;
 }
@@ -34,6 +39,11 @@
   height: 400px;
   padding-top: 30px;
   padding-left: 5px;
+}
+
+.cart-image {
+  margin-left: 780px;
+  margin-top: 6px;
 }
 
 
@@ -60,6 +70,12 @@
 .note-line-break {
   width: 300px;
 }
+
+.notes-list-title {
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
 
 .plant-care-checkboxes {
   padding-top: 10px;
@@ -117,6 +133,16 @@
   margin-bottom: auto;
   justify-content: center;
   justify-items: center;
+}
+
+.workshop-firstCard {
+  width: 600px;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.workshop-title {
+  margin-top: 20px;
 }
 
 /* Plant Card */

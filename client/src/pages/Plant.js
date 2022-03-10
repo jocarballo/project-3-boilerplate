@@ -104,6 +104,11 @@ const Plant = () => {
       .catch((err) => console.log(err));
   };
 
+
+  // BASKET
+
+  useState()
+
   // add plant to basket
   const addPlantToBasket = () => {
     axios
@@ -114,15 +119,19 @@ const Plant = () => {
           headers: { Authorization: `Bearer ${storedToken}` },
         }
       )
-      .then(() => {
-        console.log("Added plant to basket.");
+      .then((response) => {
+        console.log("Added plant to basket.", response.data);
       })
       .catch((err) => console.log(err));
   };
 
+ 
+
+
+
   return (
     <div>
-      <Navbar />
+      <Navbar/>
       <div className="container-fluid plant-container">
         <div className="row fill">
           <div className="col-4 d-flex" style={{ background: "#fac400" }}>
@@ -208,11 +217,12 @@ const Plant = () => {
                     <p></p>
                     <button
                       type="button"
-                      className="btn btn-primary"
+                      className="btn btn-success"
                       onClick={addPlantToBasket}
                     >
                       Add to Basket
                     </button>
+                    
                   </div>
                 </div>
               )}

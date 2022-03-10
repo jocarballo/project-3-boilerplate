@@ -49,7 +49,7 @@ export default function NotesSection(props) {
           <div className="col-6 d-flex justify-content-center">
             <div className="align-self-center">
               <h1>Notes</h1>
-              <h3>Create </h3>
+              <h4 className="notes-list-firstSubtitle">Create a note </h4>
               <form onSubmit={submitNote}>
                 <div className="form-floating">
                   <select
@@ -111,6 +111,7 @@ export default function NotesSection(props) {
             </div>
           </div>
         </div>
+        <h4 className="notes-list-title">Your Notes</h4>
         <div className="row">
           <NotesList notes={notes} />
         </div>

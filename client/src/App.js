@@ -7,7 +7,7 @@ import Plants from './pages/Plants';
 import Plant from './pages/Plant';
 import Garden from './pages/Garden';
 import QuestionFormulaire from './pages/QuestionFormulaire';
-
+import Events from './pages/Events';
 
 
 function App() {
@@ -21,6 +21,7 @@ function App() {
           <Route path='/plants/:plantId' element={<Plant />} />
           <Route path='/garden' element={<Garden />} />
           <Route path='/question' element={<QuestionFormulaire />} />
+          <Route path='/events' element={<Events />} />
         </Routes>
     </div>
   );

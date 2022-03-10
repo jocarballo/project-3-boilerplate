@@ -68,7 +68,7 @@ export default function QuestionFormulaire(props) {
                     className="form-select"
                     id="floatingSelect"
                     aria-label="Floating label select example"
-                    style={({ height: 100 }, { width: 635 })}
+                    style={({ height: 100 }, { width: 520 })}
                   >
                     <option defaultValue>Choose your plant</option>
                     {plants.map((plant, i) => (
@@ -79,7 +79,7 @@ export default function QuestionFormulaire(props) {
                 </div>
                 <p></p>
                 <div className="mb-3">
-                  <label htmlFor="title" className="form-label">
+                  <label htmlFor="title" className="form-label" >
                     Title
                   </label>
                   <input
@@ -89,6 +89,8 @@ export default function QuestionFormulaire(props) {
                     id="title"
                     value={title}
                     onChange={handleTitle}
+                    style={({ height: 100 }, { width: 520 })}
+
                   />
                 </div>
                 <label htmlFor="question" className="form-label">
@@ -99,7 +101,7 @@ export default function QuestionFormulaire(props) {
                     className="form-control"
                     placeholder="Write your question here"
                     id="floatingTextarea2"
-                    style={({ height: 100 }, { width: 635 })}
+                    style={({ height: 100 }, { width: 520 })}
                   ></textarea>
                   <label htmlFor="floatingTextarea2">
                     Write your question here:
@@ -110,6 +112,7 @@ export default function QuestionFormulaire(props) {
                   <button
                     type="submit"
                     class="btn btn-outline-success btn-block"
+                    style={({ height: 100 }, { width: 520 })}
                   >
                     Send to botanic
                   </button>
