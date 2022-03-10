@@ -10,6 +10,7 @@ const Plant = require('../models/Plant')
 const User = require('../models/User')
 const Note = require('../models/Note')
 const Question = require('../models/Question')
+const Event = require('../models/Event')
 
 const plants = [
 	{
@@ -159,7 +160,20 @@ const questions = [
     }
 ]
 
-
+const events = [
+	{
+		"title": "Cutting Plants",
+		"description": "Join to this workshop on how to cut your plants correctly!",
+		"date": "2020-05-10",
+		"image_url": "/images/worshop2.jpg"
+	},
+	{
+		"title": "Winter Bouquet",
+		"description": "Learn all the tips to build a winter bouquet.",
+		"date": "2020-05-15",
+		"image_url": "/images/workshop1.jpg"
+	}
+]
 
 // Call the Plant model's create method with the array as argument.
 Plant.insertMany(plants)
@@ -188,8 +202,15 @@ User.insertMany(users)
 Note.insertMany(notes)
 .then(notes => {
     console.log('Here we got notes: ' + notes)
-    mongoose.connection.close();
 })
 .catch(err => console.log(err))
+
+Event.insertMany(events)
+	.then(events => {
+		console.log("Inserted events:", events)
+		mongoose.connection.close();
+	})
+	.catch(err => console.log(err))
+
 
 

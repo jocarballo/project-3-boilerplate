@@ -25,6 +25,7 @@ const auth = require("./routes/auth")
 const question = require("./routes/question")
 const note = require("./routes/note")
 const basket = require("./routes/basket")
+const events = require("./routes/events")
 
 
 app.use("/", plants)
@@ -33,7 +34,7 @@ app.use("/", auth)
 app.use("/", question)
 app.use("/", note)
 app.use("/", basket)
-
+app.use("/", events)
 
 
 const path = require('path');
