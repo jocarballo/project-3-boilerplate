@@ -8,6 +8,7 @@ import { ASK_A_BOTANIC_TAB } from "../utilities";
 import axios from "axios";
 
 export default function Navbar(props) {
+  console.log("NavBar Props", props)
   const { logoutUser, isLoggedIn } = useContext(AuthContext);
 
   const selectedTab = props.selectedTab;
@@ -20,9 +21,12 @@ export default function Navbar(props) {
   tabClasses[selectedTab] = "nav-link active";
 
   let isUserLoggedIn = isLoggedIn;
-  console.log("Is Logged In", isUserLoggedIn);
 
   const [basketCounter, setBasketCounter] = useState(0);
+
+  if(props.basketCounter !== undefined && props.basketCounter !== basketCounter) {
+    setBasketCounter(props.basketCounter)
+  }
 
   // get the plants from basket
   useEffect(() => {

@@ -107,7 +107,7 @@ const Plant = () => {
 
   // BASKET
 
-  useState()
+  const [basketCounter, setBasketCounter] = useState(undefined)
 
   // add plant to basket
   const addPlantToBasket = () => {
@@ -121,17 +121,14 @@ const Plant = () => {
       )
       .then((response) => {
         console.log("Added plant to basket.", response.data);
+        setBasketCounter(response.data.plants.length)
       })
       .catch((err) => console.log(err));
   };
 
- 
-
-
-
   return (
     <div>
-      <Navbar/>
+      <Navbar basketCounter={basketCounter}/>
       <div className="container-fluid plant-container">
         <div className="row fill">
           <div className="col-4 d-flex" style={{ background: "#fac400" }}>
