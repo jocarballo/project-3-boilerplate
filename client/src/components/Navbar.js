@@ -5,10 +5,11 @@ import { HOME_TAB } from "../utilities";
 import { PLANTS_TAB } from "../utilities";
 import { GARDEN_TAB } from "../utilities";
 import { ASK_A_BOTANIC_TAB } from "../utilities";
+import { EVENTS_TAB } from "../utilities";
+
 import axios from "axios";
 
 export default function Navbar(props) {
-  console.log("NavBar Props", props)
   const { logoutUser, isLoggedIn } = useContext(AuthContext);
 
   const selectedTab = props.selectedTab;
@@ -17,6 +18,7 @@ export default function Navbar(props) {
   tabClasses[PLANTS_TAB] = "nav-link";
   tabClasses[GARDEN_TAB] = "nav-link";
   tabClasses[ASK_A_BOTANIC_TAB] = "nav-link";
+  tabClasses[EVENTS_TAB] = "nav-link";
 
   tabClasses[selectedTab] = "nav-link active";
 
@@ -24,8 +26,11 @@ export default function Navbar(props) {
 
   const [basketCounter, setBasketCounter] = useState(0);
 
-  if(props.basketCounter !== undefined && props.basketCounter !== basketCounter) {
-    setBasketCounter(props.basketCounter)
+  if (
+    props.basketCounter !== undefined &&
+    props.basketCounter !== basketCounter
+  ) {
+    setBasketCounter(props.basketCounter);
   }
 
   // get the plants from basket
@@ -70,6 +75,9 @@ export default function Navbar(props) {
             </Link>
             <Link className={tabClasses[PLANTS_TAB]} to="/plants">
               Plants
+            </Link>
+            <Link className={tabClasses[EVENTS_TAB]} to="/events">
+              Events
             </Link>
             {isUserLoggedIn && (
               <>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
+import { EVENTS_TAB } from "../utilities";
 
 export default function Home() {
   const [events, setEvents] = useState([]); // initial state
@@ -21,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar />
+      <Navbar selectedTab={EVENTS_TAB}/>
 
       <div className="container">
         <div className="row">
