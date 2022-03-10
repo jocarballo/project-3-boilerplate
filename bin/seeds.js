@@ -1,7 +1,11 @@
 const mongoose = require('mongoose')
 
+const MONGO_URI = "mongodb://localhost/planty";
+
+console.log("Connecting to", MONGO_URI);
+
 // connect to mongoose
-mongoose.connect('mongodb://localhost/planty')
+mongoose.connect(MONGO_URI)
 	.then(db => console.log(`connected to database ${db.connections[0].name}`))
 	.catch(err => console.log(err))
 
