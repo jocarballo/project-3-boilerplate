@@ -39,7 +39,9 @@ export default function Navbar(props) {
       .get("/basket")
       .then((response) => {
         console.log("basket here:", response.data);
-        setBasketCounter(response.data.plants.length);
+        if(response.data.plants !== undefined) {
+          setBasketCounter(response.data.plants.length);
+        }
       })
       .catch((err) => console.log(err));
   }, []);
