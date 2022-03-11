@@ -71,7 +71,7 @@ export default function Garden() {
         </div>
       </div>
       <p></p>
-      <NotesSection plants={plants} notes={notes}/>
+      <NotesSection plants={plants} notes={notes} onNoteCreated={() => getAllNotesFromUser()}/>
     </>
   );
 }

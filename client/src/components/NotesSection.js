@@ -5,6 +5,7 @@ import NotesList from "./NotesList";
 export default function NotesSection(props) {
   const plants = props.plants;
   const notes = props.notes;
+  const onNoteCreated = props.onNoteCreated;
 
   const storedToken = localStorage.getItem("authToken");
 
@@ -33,6 +34,7 @@ export default function NotesSection(props) {
       )
       .then((response) => {
         console.log("created note with success");
+        onNoteCreated();
         alert("Note submited with success!");
       })
 
