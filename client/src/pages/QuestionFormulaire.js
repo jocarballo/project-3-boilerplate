@@ -29,11 +29,15 @@ export default function QuestionFormulaire(props) {
     const element = e.target[0];
     var selectedPlant = element.options[element.selectedIndex].value;
 
-    const messageElement = e.target[1];
+    const titleElement = e.target[1];
+    const title = titleElement.value;
+
+    const messageElement = e.target[2];
     const message = messageElement.value;
 
     const reqBody = {
       plant: selectedPlant,
+      title: title,
       message: message,
     };
 
@@ -43,6 +47,7 @@ export default function QuestionFormulaire(props) {
       })
       .then((response) => {
         console.log("This question was created!");
+        alert("Question submited with success!");
       })
       .catch((err) => {
         const errorDescription = err.response.data.message;
