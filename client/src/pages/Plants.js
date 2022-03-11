@@ -10,7 +10,9 @@ import { PLANTS_TAB } from "../utilities";
 
 export default function Plants() {
   const [query, setQuery] = useQueryParam("query", StringParam);
+  const hasValidQuery = query !== undefined && query !== ""
   console.log("query: ", query);
+
 
   const [plants, setPlants] = useState([]);
   console.log("plants here: ", plants);
@@ -55,7 +57,7 @@ export default function Plants() {
         </div>
       </div> 
       <div className="ms-4 mt-4">
-          { filteredPlants.length === 0 && (
+          { filteredPlants.length === 0 && hasValidQuery &&(
             <h2>There are no plants.</h2>
           )}
         </div>
