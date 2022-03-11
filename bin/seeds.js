@@ -108,6 +108,71 @@ const plants = [
 		"soil": "Moist, humusy, well-drained soil",
 		"image": "boston_fern",
 		"description": "Boston ferns (Nephrolepis exaltata) are popular houseplants and proper Boston fern care is essential to keeping this plant healthy. Learning how to take care of a Boston fern isn’t difficult, but it is specific. Below we have listed a few care tips for a Boston fern so that you can provide everything your fern needs to be happy and beautiful."
+	},
+	{
+		"common_name": "Monstera",
+		"botanical_name": "Monstera 'Albo-Variegata'",
+		"care": "medium",
+		"water_frequency": {
+			"amount": "1",
+			"cadence": "week"
+		},
+		"light": "partly_shaded",
+		"soil": "Peat-based potting soil, well drained",
+		"image": "monstera",
+		"description": "The Swiss cheese plant, or Mexican breadfruit (Monstera deliciosa), is a common houseplant with showy, glossy, perforated leaves slashed to the margins; numerous horticultural varieties have been developed. When fully ripe, its sweet scaly fruit is edible and tastes like a combination of pineapple and mango."
+	},
+	{
+		"common_name": "Aglaonema",
+		"botanical_name": "Aglaonema Maria",
+		"care": "easy",
+		"water_frequency": {
+			"amount": "1-2",
+			"cadence": "week"
+		},
+		"light": "partly_sun",
+		"soil": "Well drained potting soil",
+		"image": "aglaonema",
+		"description": "Aglaonema 'Maria' is a beautifully patterned tropical plant, which is very easy to care for and perfect for beginners. Tolerant of low light conditions and requiring only periodic maintenance care, this Chinese Evergreen is incredibly versatile and adaptable."
+	},
+	{
+		"common_name": "Alocasia Frydek",
+		"botanical_name": "Alocasia micholiziana Frydek",
+		"care": "easy",
+		"water_frequency": {
+			"amount": "2-3",
+			"cadence": "days"
+		},
+		"light": "partly_sun",
+		"soil": "Loose, well-draining potting mix",
+		"image": "alocasia",
+		"description": "Frydek is an Elephant's Ear variation that is also called the Green Velvet Alocasia. The Alocasia Frydek dark green to black leaves with prominent lateral veins that are a bright white. The leaves can grow up to 18-inches long."
+	},
+	{
+		"common_name": "Pinstripe Plant",
+		"botanical_name": "Calathea ornata",
+		"care": "easy",
+		"water_frequency": {
+			"amount": "1-2",
+			"cadence": "week"
+		},
+		"light": "partly_shaded",
+		"soil": "Moisture retentive",
+		"image": "calathea",
+		"description": "The Calathea Ornata (also called the Calathea Pinstripe or Pinstripe plant) is a beautiful plant with pink stripes on its large green leaves. It's beautiful, but it can be a fussy plant and difficult to care for at times. We all know someone that has struggled to keep a Calathea healthy, let alone alive."
+	},
+	{
+		"common_name": "Corn Cane Plant",
+		"botanical_name": "Dracaena Fragans",
+		"care": "easy",
+		"water_frequency": {
+			"amount": "1",
+			"cadence": "week"
+		},
+		"light": "partly_sun",
+		"soil": "Rich, moist",
+		"image": "dracaena",
+		"description": "Dracaena fragrans is a slow growing shrub, usually multistemmed at the base, mature specimens reaching 15 m (49 ft) or more tall with a narrow crown of usually slender erect branches. Stems may reach up to 30 cm (12 in) diameter on old plants; in forest habitats they may become horizontal with erect side branches."
 	}
 ]
 

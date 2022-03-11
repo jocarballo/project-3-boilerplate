@@ -54,6 +54,11 @@ export default function Plants() {
           ))}
         </div>
       </div> 
+      <div className="ms-4 mt-4">
+          { filteredPlants.length === 0 && (
+            <h2>There are no plants.</h2>
+          )}
+        </div>
     </>
   );
 }
